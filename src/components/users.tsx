@@ -20,7 +20,7 @@ const Users = () => {
   const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const open = (id) => {
+  const open = (id: any) => {
     setIsOpen(true);
     setUserId(id);
   };
