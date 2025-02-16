@@ -64,7 +64,7 @@ const AddUser = () => {
     
             <div className="p-8">
                 <form className="mt-5 sm:mt-5 md:mt-15 lg:mt-20 xl:mt-20" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-2 place-items-center  m-auto text-gray-500">
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2 place-items-center  m-auto text-gray-500">
                         <div className="flex flex-col">
                             <label htmlFor="">First Name</label>
                             <input type="text" placeholder="Enter first name" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("firstname", { required: true })} />

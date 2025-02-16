@@ -23,8 +23,6 @@ function App() {
       ]
     },
     
-    
-    
     {
       path: "dashboard",
      element:<PrivateRoute><Master2/></PrivateRoute>,

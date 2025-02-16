@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { FaHouse, FaUserPlus, FaUsersLine, FaPerson, FaOutdent } from "react-icons/fa6";
 import { useState } from "react";
@@ -8,16 +7,15 @@ import { Context } from "./context";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
-  const [activete, setActive] = useState(null);
   const [isNavbarVisible, setNavbarVisible] = useState(false);
 
   const { userData }: any = useContext(Context);
-  
+  const [activete, setActive] = useState(null);
+
   const handleBg = (l: any) => {
     setActive(l);
-    if (window.innerWidth < 640) {
         setNavbarVisible(false);
-      }
+      
   };
 
   const toggleNavbar = () => {
@@ -27,11 +25,12 @@ const Navbar = () => {
 
   return (
     <>
-      <GiHamburgerMenu className="absolute top-3 left-3 text-3xl text-white cursor-pointer sm:hidden md:hidden lg:hidden xl:hidden" onClick={toggleNavbar} />
+      <GiHamburgerMenu className="absolute top-3 left-3 text-3xl text-white cursor-pointer sm:block md:block lg:hidden xl:hidden" onClick={toggleNavbar} />
       
+      {/* القاءمه المنسدله */}
+{isNavbarVisible && 
 
-
-      <div className={`bg-black fixed inset-0 z-10 border-gray-800 text-white h-screen w-[80%] sm:block md:hidden lg:hidden xl:hidden ${isNavbarVisible ? "block" : "hidden"}`}>
+      <div className={`bg-black fixed inset-0 z-10 border-gray-800 text-white h-screen w-[40%] sm:block md:block lg:hidden xl:hidden`}>
         <h1 className="border-l-4 border-orange-300 font-semibold px-2 m-5">UMS</h1>
 
         <div className="flex flex-col items-center">
@@ -70,12 +69,13 @@ const Navbar = () => {
           </button>
           <div className="flex gap-2 mt-10 cursor-pointer">
             <h2 className="font-semibold">
-              <Link to='/'><Close /></Link>
+              <Link to=''><Close/></Link>
             </h2>
             <FaOutdent size={22} />
           </div>
         </div>
       </div>
+    }
 
 
 
@@ -90,7 +90,7 @@ const Navbar = () => {
 
 
 
-      <div className={`bg-gray-900 border-2  border-gray-800 text-white h-screen hidden sm:hidden md:block lg:block xl:block`}>
+      <div className={`bg-gray-900 border-2  border-gray-800 text-white h-screen hidden sm:hidden md:hidden lg:block xl:block`}>
         <h1 className="border-l-4 border-orange-300 font-semibold px-2 m-5">UMS</h1>
 
         <div className="flex flex-col items-center">

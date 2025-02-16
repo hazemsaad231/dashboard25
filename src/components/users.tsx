@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Users = () => {
   const [data, setData] = useState([]);
   const [current, setCurrent] = useState(1);
-  const itemsPerPage = 7;
+  const itemsPerPage = 5;
   const lastIndex = current * itemsPerPage;
   const startIndex = lastIndex - itemsPerPage;
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -58,47 +58,47 @@ const Users = () => {
 
   return (
     <>
-      <div className="w-full overflow-x-auto">  
+      <div>  
         {loading ? (
           <Load />
         ) : (
-          <div className="w-[100%] m-auto ">
+          <div>
             <ToastContainer />
-            <div className="flex justify-between p-2">
+            <div className="flex justify-between p-6">
               <h1 className="font-bold text-gray-400 text-lg m-2">Users List</h1>
-              <Link to="/dashboard/addUser" className="bg-yellow-500 px-2 text-white text-sm rounded-lg flex items-center gap-2">
+              <Link to="/dashboard/addUser" className="bg-yellow-500 px-2 text-white text-sm rounded-lg flex items-center gap-1">
                 <FaUserPlus size={20} />
                 ADD USER
               </Link>
             </div>
-            <hr className="w-4/5 m-auto h-2 bg-gray-300 mb-10"  />
+            <hr className="w-[90%] m-auto h-2 bg-gray-300 my-6"  />
 
-            <div className="overflow-x-auto w-full ">
-              <table className="table-auto w-max text-center m-auto">
+            <div className='overflow-x-auto w-full m-auto'>
+              <table className="border-collapse m-auto">
                 <thead>
                   <tr className="text-gray-400 font-serif">
-                    <th className="px-2">Image</th>
+                    <th className="px-5">Image</th>
                     <th className="px-2">First Name</th>
                     <th className="px-2">Last Name</th>
                     <th className="px-2">Email</th>
                     <th className="px-2">Age</th>
                     <th className="px-2">Phone</th>
                     <th className="px-2">Birth Date</th>
-                    <th className="px-2"></th>
+                    <th className="px-5"></th>
                   </tr>
                 </thead>
                 <tbody>
                   {currentData.map((el: any) => (
                     <tr key={el.id} className="text-gray-400 font-serif">
-                      <td><img src={el.image} alt="img" className="w-16 h-16 rounded-xl" /></td>
-                      <td className="px-2">{el.firstName}</td>
-                      <td className="px-2">{el.lastName}</td>
-                      <td className="px-2">{el.email}</td>
-                      <td className="px-2">{el.age}</td>
-                      <td className="px-2">{el.phone}</td>
-                      <td className="px-2">{el.birthDate}</td>
+                      <td className="p-4"><img src={el.image} alt="img" className="w-16 h-16 rounded-xl" /></td>
+                      <td className="p-2">{el.firstName}</td>
+                      <td className="p-2">{el.lastName}</td>
+                      <td className="p-2">{el.email}</td>
+                      <td className="p-2">{el.age}</td>
+                      <td className="p-2">{el.phone}</td>
+                      <td className="p-2">{el.birthDate}</td>
                       <td>
-                        <div className="flex gap-6 text-yellow-500 cursor-pointer">
+                        <div className="flex gap-6 text-yellow-500 cursor-pointer p-5">
                           <MdDelete size={24} onClick={() => open(el.id)} />
                           <Link to={`/dashboard/addUser/${el.id}`}><FaEdit size={24} /></Link>
                         </div>

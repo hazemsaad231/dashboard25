@@ -13,7 +13,7 @@ const Profile = ()=>{
 
     return(
 
-<div className="">
+<div className="py-6">
 
 <h1 className="font-bold text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4 text-gray-300">profile</h1>
 
