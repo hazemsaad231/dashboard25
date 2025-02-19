@@ -62,7 +62,7 @@ const Users = () => {
         {loading ? (
           <Load />
         ) : (
-          <div>
+          <div className="m-4">
             <ToastContainer />
             <div className="flex justify-between p-6">
               <h1 className="font-bold text-gray-400 text-lg m-2">Users List</h1>

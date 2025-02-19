@@ -63,36 +63,36 @@ const AddUser = () => {
             <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4  text-gray-400 font-bold">{id ? "Update User" : "Add User"}</h1>
     
             <div className="p-8">
-                <form className="mt-5 sm:mt-5 md:mt-15 lg:mt-20 xl:mt-20" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2 place-items-center  m-auto text-gray-500">
+                <form className="mt-4 sm:mt-4 md:mt-14 lg:mt-20 xl:mt-20" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2 place-items-center m-auto text-gray-500">
                         <div className="flex flex-col">
                             <label htmlFor="">First Name</label>
-                            <input type="text" placeholder="Enter first name" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("firstname", { required: true })} />
+                            <input type="text" placeholder="Enter first name" className="border w-48 sm:w-48 md:w-60 lg:w-max xl:w-max mt-1 p-2 px-8 shadow" {...register("firstname", { required: true })} />
                             {errors.firstname && <span className="text-red-500">First Name is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Last Name</label>
-                            <input type="text" placeholder="Enter last name" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 shadow" {...register("lastname", { required: true })} />
+                            <input type="text" placeholder="Enter last name" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max mt-1 p-2 px-8 shadow" {...register("lastname", { required: true })} />
                             {errors.lastname && <span className="text-red-500">Last Name is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Email</label>
-                            <input type="text" placeholder="Enter your email" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 mb-4 shadow" {...register("email", { required: true, pattern: { value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, message: "Only valid email is allowed" } })} />
+                            <input type="text" placeholder="Enter your email" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-4 shadow" {...register("email", { required: true, pattern: { value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, message: "Only valid email is allowed" } })} />
                             {errors.email && <span className="text-red-500">Email is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Age</label>
-                            <input type="number" placeholder="Enter your age" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 mb-4 shadow" {...register("age", { required: true })} />
+                            <input type="number" placeholder="Enter your age" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-4 shadow" {...register("age", { required: true })} />
                             {errors.age && <span className="text-red-500">Age is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Phone Number</label>
-                            <input type="text" placeholder="Enter phone number" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 mb-2 shadow" {...register("phonenumber", { required: true })} />
+                            <input type="text" placeholder="Enter phone number" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-2 shadow" {...register("phonenumber", { required: true })} />
                             {errors.phonenumber && <span className="text-red-500">Phone number is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Birth Date</label>
-                            <input type="text" placeholder="Enter birth date" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 px-8 mb-2 shadow" {...register("birthdate", { required: true })} />
+                            <input type="text" placeholder="Enter birth date" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-2 shadow" {...register("birthdate", { required: true })} />
                             {errors.birthdate && <span className="text-red-500">Birth Date is required</span>}
                         </div>
                     </div>

@@ -69,7 +69,7 @@ const Navbar = () => {
           </button>
           <div className="flex gap-2 mt-10 cursor-pointer">
             <h2 className="font-semibold">
-              <Link to=''><Close/></Link>
+              <Link to='' onClick={() => toggleNavbar}><Close/></Link>
             </h2>
             <FaOutdent size={22} />
           </div>
