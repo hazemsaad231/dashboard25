@@ -64,14 +64,14 @@ const Users = () => {
         ) : (
           <div className="m-4">
             <ToastContainer />
-            <div className="flex justify-between p-6">
+            <div className="flex justify-around p-2">
               <h1 className="font-bold text-gray-400 text-lg m-2">Users List</h1>
               <Link to="/dashboard/addUser" className="bg-yellow-500 px-2 text-white text-sm rounded-lg flex items-center gap-1">
                 <FaUserPlus size={20} />
                 ADD USER
               </Link>
             </div>
-            <hr className="w-[90%] m-auto h-2 bg-gray-300 my-6"  />
+            <hr className="w-[90%] m-auto h-2 bg-gray-300 my-3"  />
 
             <div className='overflow-x-auto w-full m-auto'>
               <table className="border-collapse m-auto">

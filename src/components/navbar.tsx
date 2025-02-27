@@ -6,6 +6,8 @@ import { useContext } from "react";
 import { Context } from "./context";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+
+
 const Navbar = () => {
   const [isNavbarVisible, setNavbarVisible] = useState(false);
 
