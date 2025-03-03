@@ -63,7 +63,7 @@ const AddUser = () => {
             <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4  text-gray-400 font-bold">{id ? "Update User" : "Add User"}</h1>
     
             <div className="p-8">
-                <form className="mt-4 sm:mt-4 md:mt-14 lg:mt-20 xl:mt-20 bg-gray-800 w-[90%] sm:w-[90%] md:w-[80%] lg:w-[80%] xl:w-[70%] m-auto p-4 rounded-xl" onSubmit={handleSubmit(onSubmit)}>
+                <form className="mt-4 sm:mt-4 md:mt-14 lg:mt-20 xl:mt-20 bg-gray-800 w-[90%] sm:w-[90%] md:w-[80%] lg:w-[80%] xl:w-[70%] m-auto p-4 rounded-xl hover:bg-gray-700" onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2 place-items-center text-gray-500">
                         <div className="flex flex-col">
                             <label htmlFor="">First Name</label>

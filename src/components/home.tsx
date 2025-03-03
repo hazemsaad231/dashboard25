@@ -48,17 +48,17 @@ const Home = class home extends PureComponent {
         <h1 className="text-3xl font-bold mb-4 text-center">Dashboard Home</h1>
 
         <div className="flex gap-4 mb-4 text-md sm:text-md md:text-md lg:text-xl xl:text-xl p-4">
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full text-center">
+          <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full text-center hover:bg-gray-700">
             <h2 className="font-semibold mb-2">Total users</h2>
             <h1>150</h1>
             <FaRegUser className="text-3xl mt-2 m-auto" />
           </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full text-center">
+          <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full text-center hover:bg-gray-700">
             <h2 className="font-semibold mb-2">Total ratio</h2>
             <h1>2.6</h1>
             <MdOutlineIntegrationInstructions className="text-3xl mt-2 m-auto" />
           </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full text-center">
+          <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full text-center hover:bg-gray-700">
             <h2 className="font-semibold mb-2">Total revenue</h2>
             <h1>20.255</h1>
             <h1 className='text-4xl'>$</h1>
@@ -67,7 +67,7 @@ const Home = class home extends PureComponent {
 
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 p-8 w-full">
 
-          <div className="bg-gray-800 p-8 rounded-lg shadow-md h-80 w-full text-center">
+          <div className="bg-gray-800 p-8 rounded-lg shadow-md h-80 w-full text-center hover:bg-gray-700">
             <h2 className="text-xl font-semibold mb-2">Total views</h2>
             <AreaResponsiveContainer width="100%" height="100%">
               <AreaChart data={areaChartData}>
@@ -81,7 +81,7 @@ const Home = class home extends PureComponent {
             </AreaResponsiveContainer>
           </div>
 
-          <div className="bg-gray-800 p-8 rounded-lg shadow-md w-full h-80 text-center">
+          <div className="bg-gray-800 p-8 rounded-lg shadow-md w-full h-80 text-center hover:bg-gray-700">
             <h2 className="text-xl font-semibold mb-2">Total visit</h2>
             <BarResponsiveContainer width="100%" height="100%">
               <BarChart data={barChartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
@@ -96,7 +96,7 @@ const Home = class home extends PureComponent {
             </BarResponsiveContainer>
           </div>
 
-          <div className="bg-gray-800 p-8 rounded-lg shadow-md h-80 w-full text-center">
+          <div className="bg-gray-800 p-8 rounded-lg shadow-md h-80 w-full text-center hover:bg-gray-700">
             <h2 className="text-xl font-semibold">Leads by source</h2>
             <PieResponsiveContainer width="100%" height="100%">
               <PieChart>
