@@ -64,7 +64,7 @@ const Users = () => {
         ) : (
           <div className="m-4">
             <ToastContainer />
-            <div className="flex justify-around p-2">
+            <div className="flex justify-between w-[100%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[80%] m-auto p-2">
               <h1 className="font-bold text-gray-400 text-lg m-2">Users List</h1>
               <Link to="/dashboard/addUser" className="bg-yellow-500 px-2 text-white text-sm rounded-lg flex items-center gap-1">
                 <FaUserPlus size={20} />
@@ -109,7 +109,7 @@ const Users = () => {
               </table>
             </div>
 
-            <div className="flex justify-center m-2">
+            <div className="flex justify-center m-2 mt-8">
               <button
                 onClick={() => setCurrent(current > 1 ? current - 1 : current)}
                 className="px-1 py-2 mx-1 text-white bg-yellow-500 rounded"
