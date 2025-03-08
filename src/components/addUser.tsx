@@ -5,8 +5,12 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
 const AddUser = () => {
+
+    
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({});
+
     const navigate = useNavigate();
+
     const { id } = useParams();
 
     console.log('user id',id)
@@ -77,12 +81,12 @@ const AddUser = () => {
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Email</label>
-                            <input type="text" placeholder="Enter your email" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-4 shadow" {...register("email", { required: true, pattern: { value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, message: "Only valid email is allowed" } })} />
+                            <input type="text" placeholder="Enter your email" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 shadow" {...register("email", { required: true, pattern: { value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, message: "Only valid email is allowed" } })} />
                             {errors.email && <span className="text-red-500">Email is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Age</label>
-                            <input type="number" placeholder="Enter your age" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-4 shadow" {...register("age", { required: true })} />
+                            <input type="number" placeholder="Enter your age" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 shadow" {...register("age", { required: true })} />
                             {errors.age && <span className="text-red-500">Age is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">

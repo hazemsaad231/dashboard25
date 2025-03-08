@@ -9,13 +9,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Users = () => {
+
   const [data, setData] = useState([]);
+  
   const [current, setCurrent] = useState(1);
   const itemsPerPage = 5;
   const lastIndex = current * itemsPerPage;
   const startIndex = lastIndex - itemsPerPage;
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const currentData = data.slice(startIndex, lastIndex);
+
+  
   const [isOpen, setIsOpen] = useState(false);
   const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
