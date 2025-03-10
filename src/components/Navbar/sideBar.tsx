@@ -1,6 +1,6 @@
 import { TfiArrowCircleLeft } from "react-icons/tfi";
 import { useContext } from "react";
-import { Context } from "./context";
+import { Context } from "../Context/context";
 
 
 

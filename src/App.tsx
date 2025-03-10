@@ -1,13 +1,13 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './components/home'
-import Users from './components/users'
-import AddUser from './components/addUser'
-import Profile from './components/profile'
-import Master1 from './components/master1'
-import Master2 from './components/master2'
-import Sign from './components/signIn'
-import PrivateRoute from './components/protuct'
+import Home from './components/Home/home'
+import Users from './components/Users/users'
+import AddUser from './components/Add/UpdateUser/addUser'
+import Profile from './components/Profile/profile'
+import Master1 from './components/Routing/master1'
+import Master2 from './components/Routing/master2'
+import Sign from './components/login/signIn'
+import PrivateRoute from './components/Routing/protuct'
 
 
 function App() {

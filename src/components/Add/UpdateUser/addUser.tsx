@@ -64,7 +64,7 @@ const AddUser = () => {
     return (
         <div>
             <ToastContainer />
-            <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4  text-gray-400 font-bold">{id ? "Update User" : "Add User"}</h1>
+            <h1 className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4  text-gray-200 font-bold">{id ? "Update User" : "Add User"}</h1>
     
             <div className="p-8">
                 <form className="mt-4 sm:mt-4 md:mt-14 lg:mt-20 xl:mt-20 bg-gray-800 w-[90%] sm:w-[90%] md:w-[80%] lg:w-[80%] xl:w-[70%] m-auto p-4 rounded-xl hover:bg-gray-700" onSubmit={handleSubmit(onSubmit)}>

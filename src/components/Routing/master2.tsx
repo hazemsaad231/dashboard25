@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 
-import Navbar from "./navbar"
-import Side from './sideBar'
+import Navbar from "../Navbar/navbar"
+import Side from '../Navbar/sideBar'
 const Master2 = ()=>{
 
     return(

@@ -1,7 +1,5 @@
-
-
 import { useContext } from "react";
-import { Context } from "./context";
+import { Context } from "../Context/context";
 
 
 
@@ -15,7 +13,7 @@ const Profile = ()=>{
 
 <div className="py-6" style={{fontFamily:"serif"}}>
 
-<h1 className="font-bold text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4 text-gray-300">profile</h1>
+<h1 className="font-bold text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4 text-gray-200">profile</h1>
 
 <div className="flex flex-col justify-center items-center">
 

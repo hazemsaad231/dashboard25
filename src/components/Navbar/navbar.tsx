@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { FaHouse, FaUserPlus, FaUsersLine, FaPerson, FaOutdent } from "react-icons/fa6";
 import { useState } from "react";
-import Close from "./close";
+import Close from "../Close/close";
 import { useContext } from "react";
-import { Context } from "./context";
+import { Context } from "../Context/context";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 
@@ -32,7 +32,7 @@ const Navbar = () => {
       {/* القاءمه المنسدله */}
 {isNavbarVisible && 
 
-      <div className={`bg-black fixed inset-0 z-10 border-gray-800 text-white h-screen w-[40%] sm:block md:block lg:hidden xl:hidden`}>
+      <div className={`bg-black fixed inset-0 z-10 border-gray-800 text-white h-[100vh] w-[40%] sm:block md:block lg:hidden xl:hidden`}>
         <h1 className="border-l-4 border-orange-300 font-semibold px-2 m-5">UMS</h1>
 
         <div className="flex flex-col items-center">
@@ -81,18 +81,9 @@ const Navbar = () => {
 
 
 
+{/* القاءمه العاديه */}
 
-
-
-
-
-
-
-
-
-
-
-      <div className={`bg-gray-900 border-2  border-gray-800 text-white h-screen hidden sm:hidden md:hidden lg:block xl:block`}>
+      <div className={`bg-gray-900 border-r-2 border-gray-800 text-white hidden sm:hidden md:hidden lg:block xl:block`}>
         <h1 className="border-l-4 border-orange-300 font-semibold px-2 m-5">UMS</h1>
 
         <div className="flex flex-col items-center">

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaUserPlus, FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
-import Load from './load';
+import Load from '../Load/load';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -69,7 +69,7 @@ const Users = () => {
           <div className="m-4">
             <ToastContainer />
             <div className="flex justify-between w-[100%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[80%] m-auto p-2">
-              <h1 className="font-bold text-gray-400 text-lg m-2">Users List</h1>
+              <h1 className="font-bold text-gray-200 text-lg m-2">Users List</h1>
               <Link to="/dashboard/addUser" className="bg-yellow-500 px-2 text-white text-sm rounded-lg flex items-center gap-1">
                 <FaUserPlus size={20} />
                 ADD USER
