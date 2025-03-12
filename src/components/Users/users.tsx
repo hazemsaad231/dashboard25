@@ -13,7 +13,7 @@ const Users = () => {
   const [data, setData] = useState([]);
   
   const [current, setCurrent] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
   const lastIndex = current * itemsPerPage;
   const startIndex = lastIndex - itemsPerPage;
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -85,7 +85,7 @@ const Users = () => {
                     <th className="px-2">First Name</th>
                     <th className="px-2">Last Name</th>
                     <th className="px-2">Email</th>
-                    <th className="px-2">Age</th>
+                    <th className="px-2" >Age</th>
                     <th className="px-2">Phone</th>
                     <th className="px-2">Birth Date</th>
                     <th className="px-5"></th>
@@ -94,13 +94,13 @@ const Users = () => {
                 <tbody>
                   {currentData.map((el: any) => (
                     <tr key={el.id} className="text-gray-400 font-serif">
-                      <td className="p-4"><img src={el.image} alt="img" className="w-16 h-16 rounded-xl" /></td>
-                      <td className="p-2">{el.firstName}</td>
-                      <td className="p-2">{el.lastName}</td>
-                      <td className="p-2">{el.email}</td>
-                      <td className="p-2">{el.age}</td>
-                      <td className="p-2">{el.phone}</td>
-                      <td className="p-2">{el.birthDate}</td>
+                      <td className="px-5"><img src={el.image} alt="img" className="w-16 h-16 rounded-xl" /></td>
+                      <td className="px-4">{el.firstName}</td>
+                      <td className="px-4">{el.lastName}</td>
+                      <td className="px-2">{el.email}</td>
+                      <td className="px-4">{el.age}</td>
+                      <td className="px-2">{el.phone}</td>
+                      <td className="px-4">{el.birthDate}</td>
                       <td>
                         <div className="flex gap-6 text-yellow-500 cursor-pointer p-5">
                           <MdDelete size={24} onClick={() => open(el.id)} />

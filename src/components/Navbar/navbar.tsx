@@ -83,11 +83,11 @@ const Navbar = () => {
 
 {/* القاءمه العاديه */}
 
-      <div className={`bg-gray-900 border-r-2 border-gray-800 text-white hidden sm:hidden md:hidden lg:block xl:block`}>
+      <div className={`bg-gray-900 border-r-2 h-[100vh] border-gray-800 text-white hidden sm:hidden md:hidden lg:block xl:block`}>
         <h1 className="border-l-4 border-orange-300 font-semibold px-2 m-5">UMS</h1>
 
         <div className="flex flex-col items-center">
-          <div className="text-center mt-12">
+          <div className="text-center mt-6">
             <img src={userData.image} alt="img" className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-40 lg:h-40 xl:w-40 xl:h-40 rounded-full mb-2 px-2" />
             <h1 className="font-bold text-lg">{userData.firstName} {userData.lastName}</h1>
             <h3 className="text-yellow-500 font-semibold">Admin</h3>

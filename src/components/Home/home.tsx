@@ -1,4 +1,3 @@
-
 import { PureComponent } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer as PieResponsiveContainer } from 'recharts';
 import { XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
@@ -44,10 +43,10 @@ const areaChartData = [
 const Home = class home extends PureComponent {
   render() {
     return (
-      <div className="flex flex-col items-center bg-gray-900 text-white mt-12 overflow-hidden">
+      <div className="flex flex-col items-center bg-gray-900 text-white mt-4 overflow-hidden">
         <h1 className="text-3xl font-bold mb-4 text-center">Dashboard Home</h1>
 
-        <div className="flex gap-4 mb-4 text-md sm:text-md md:text-md lg:text-xl xl:text-xl p-4">
+        <div className="flex gap-4 text-md sm:text-md md:text-md lg:text-xl xl:text-xl p-4">
           <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full text-center hover:bg-gray-700">
             <h2 className="font-semibold mb-2">Total users</h2>
             <h1>150</h1>
@@ -65,7 +64,7 @@ const Home = class home extends PureComponent {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 p-8 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 p-4 w-full">
 
           <div className="bg-gray-800 p-8 rounded-lg shadow-md h-80 w-full text-center hover:bg-gray-700">
             <h2 className="text-xl font-semibold mb-2">Total views</h2>
