@@ -42,7 +42,7 @@ const onSubmait=async(data:any)=>{
     return(
 
 <>
-<ToastContainer />
+<ToastContainer limit={1} />
 <div className="signIn ">
 <div className="login  h-max  bg-white text-center rounded-xl shadow-2xl p-16 w-[80%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[30%]">
 

@@ -92,12 +92,12 @@ const AddUser = () => {
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Phone Number</label>
-                            <input type="text" placeholder="Enter phone number" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-2 shadow" {...register("phonenumber", { required: true })} />
+                            <input type="text" placeholder="Enter phone number" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 shadow" {...register("phonenumber", { required: true })} />
                             {errors.phonenumber && <span className="text-red-500">Phone number is required</span>}
                         </div>
                         <div className="flex flex-col mt-5">
                             <label htmlFor="">Birth Date</label>
-                            <input type="text" placeholder="Enter birth date" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 mb-2 shadow" {...register("birthdate", { required: true })} />
+                            <input type="text" placeholder="Enter birth date" className="border  w-48 sm:w-48 md:w-60 lg:w-max xl:w-max p-2 mt-1 px-8 shadow" {...register("birthdate", { required: true })} />
                             {errors.birthdate && <span className="text-red-500">Birth Date is required</span>}
                         </div>
                     </div>

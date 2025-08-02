@@ -67,7 +67,7 @@ const Users = () => {
           <Load />
         ) : (
           <div className="m-4">
-            <ToastContainer />
+            <ToastContainer limit={1} />
             <div className="flex justify-between w-[100%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[80%] m-auto p-2">
               <h1 className="font-bold text-gray-200 text-lg m-2">Users List</h1>
               <Link to="/dashboard/addUser" className="bg-yellow-500 px-2 text-white text-sm rounded-lg flex items-center gap-1">
