@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
-import style from "./users.module.css"
+import styles from "./users.module.css";
+
 const Users = () => {
 
   const [data, setData] = useState([]);
@@ -22,7 +23,7 @@ const Users = () => {
   const startIndex = lastIndex - itemsPerPage;
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const currentData = data.slice(startIndex, lastIndex);
-  
+
 
   
   const [isOpen, setIsOpen] = useState(false);
@@ -112,27 +113,27 @@ const Users = () => {
               <table className="border-collapse w-full">
                 <thead>
                   <tr className="bg-gray-100 font-serif h-12">
-                    <th className={style.th}>Image</th>
-                    <th className={style.th}>First Name</th>
-                    <th className={style.th}>Last Name</th>
-                    <th className={style.th}>Email</th>
-                    <th className={style.th} >Age</th>
-                    <th className={style.th}>Phone</th>
-                    <th className={style.th}>Birth Date</th>
-                    <th className={style.th}></th>
+                    <th className={styles.th}>Image</th>
+                    <th className={styles.th}>First Name</th>
+                    <th className={styles.th}>Last Name</th>
+                    <th className={styles.th}>Email</th>
+                    <th className={styles.th} >Age</th>
+                    <th className={styles.th}>Phone</th>
+                    <th className={styles.th}>Birth Date</th>
+                    <th className={styles.th}></th>
                   </tr>
                 </thead>
                 <tbody className="text-center">
                   {currentData.map((el: any) => (
                     <tr key={el.id} className="font-serif">
-                      <td className={style.td}><img src={el.image} alt="img" className="w-16 h-16 rounded-xl m-auto" /></td>
-                      <td className={style.td}>{el.firstName}</td>
-                      <td className={style.td}>{el.lastName}</td>
-                      <td className={style.td}>{el.email}</td>
-                      <td className={style.td}>{el.age}</td>
-                      <td className={style.td}>{el.phone}</td>
-                      <td className={style.td}>{el.birthDate}</td>
-                      <td className={style.td}>
+                      <td className={styles.td}><img src={el.image} alt="img" className="w-16 h-16 rounded-xl m-auto" /></td>
+                      <td className={styles.td}>{el.firstName}</td>
+                      <td className={styles.td}>{el.lastName}</td>
+                      <td className={styles.td}>{el.email}</td>
+                      <td className={styles.td}>{el.age}</td>
+                      <td className={styles.td}>{el.phone}</td>
+                      <td className={styles.td}>{el.birthDate}</td>
+                      <td className={styles.td}>
                         <div className="flex gap-6 text-green-700 cursor-pointer p-5">
                           <MdDelete size={24} onClick={() => open(el.id)} />
                           <Link to={`/dashboard/addUser/${el.id}`}><FaEdit size={24} /></Link>
