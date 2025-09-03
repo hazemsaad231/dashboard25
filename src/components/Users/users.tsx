@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
-import style from './users.module.css'
+import style from "./users.module.css"
 const Users = () => {
 
   const [data, setData] = useState([]);
