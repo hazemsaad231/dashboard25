@@ -22,6 +22,7 @@ const Users = () => {
   const startIndex = lastIndex - itemsPerPage;
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const currentData = data.slice(startIndex, lastIndex);
+  
 
   
   const [isOpen, setIsOpen] = useState(false);
