@@ -24,8 +24,10 @@ const onSubmait=async(data:any)=>{
     try {
         const response = await axios.post('https://dummyjson.com/auth/login',data)
         
-        console.log('token',response.data.accessToken)
+        console.log('token',response.data)
         localStorage.setItem('token',response.data.accessToken);
+        localStorage.setItem('id',response.data.id);
+        console.log('id',response.data.id)
         saveDate()
         setTimeout(()=>{
             navigate('/dashboard')
@@ -44,9 +46,9 @@ const onSubmait=async(data:any)=>{
 <>
 <ToastContainer limit={1} />
 <div className="signIn ">
-<div className="login  h-max  bg-white text-center rounded-xl shadow-2xl p-16 w-[80%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[30%]">
+<div className="login  h-max bg-white text-start rounded-xl shadow-2xl p-16 w-[80%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[30%]">
 
-<h1 className="text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-2xl border-l-4 border-orange-300 text-start font-bold p-2 px-6 mb-12 ">User Mangement System</h1>
+<h1 className="text-xl lg:text-2xl border-l-4 border-orange-300 text-start font-bold p-2 px-6 mb-12 ">User Mangement System</h1>
 
 <h3 className="text-xl font-semibold">SIGN IN</h3>
 <p className="text-md text-gray-500 font-extralight">Enter your credentials to access your account</p>

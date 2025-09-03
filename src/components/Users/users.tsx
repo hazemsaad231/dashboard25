@@ -1,19 +1,23 @@
 import{ useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { FaUserPlus, FaEdit } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import Load from '../Load/load';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+import { CiSearch } from "react-icons/ci";
+import style from './users.module.css'
 const Users = () => {
 
   const [data, setData] = useState([]);
+  const [AllData, setAllData] = useState([]);
   
   const [current, setCurrent] = useState(1);
-  const itemsPerPage = 6;
+  const [itemsPerPage, setItemsPerPage] = useState(6); 
   const lastIndex = current * itemsPerPage;
   const startIndex = lastIndex - itemsPerPage;
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -37,6 +41,7 @@ const Users = () => {
     try {
       const response = await axios.get('https://dummyjson.com/users');
       setData(response.data.users);
+      setAllData(response.data.users);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -62,47 +67,72 @@ const Users = () => {
 
   return (
     <>
+  <ToastContainer limit={1} />
+  
       <div>  
         {loading ? (
           <Load />
         ) : (
-          <div className="m-4">
-            <ToastContainer limit={1} />
-            <div className="flex justify-between w-[100%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[80%] m-auto p-2">
-              <h1 className="font-bold text-gray-200 text-lg m-2">Users List</h1>
-              <Link to="/dashboard/addUser" className="bg-yellow-500 px-2 text-white text-sm rounded-lg flex items-center gap-1">
-                <FaUserPlus size={20} />
-                ADD USER
+          <div className="lg:ml-60 p-4 bg-gray-100 min-h-screen pt-4">
+          
+            <div className="flex justify-between items-center py-8 md:py-4 p-4">
+              <h1 className="font-bold text-2xl m-2">Users</h1>
+              <Link to="/dashboard/addUser">
+                <button className='bg-black text-white p-2 rounded-lg font-bold'>+ New user</button>
               </Link>
             </div>
-            <hr className="w-[90%] m-auto h-2 bg-gray-300 my-3"  />
 
-            <div className='overflow-x-auto w-full m-auto'>
-              <table className="border-collapse m-auto">
+            <div className='bg-white rounded-xl'>
+              <div className="flex justify-between items-center p-2">
+<div className="relative">
+  <input
+  type="text"
+  className="w-64 h-10 rounded-full pl-10 pr-4 bg-gray-100 focus:bg-white border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+  placeholder="Search..."
+ onChange={(e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    if (searchTerm !== '') {
+   const filteredData = AllData.filter((item: any) =>
+        item.firstName.toLowerCase().startsWith(searchTerm)
+      );
+      setData(filteredData);
+    } else {
+   setData(AllData); 
+    }
+  }}
+/>
+  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+    <CiSearch size={20} />
+  </span>
+</div>
+
+              </div>
+              <div className='overflow-x-auto'>
+              <table className="border-collapse w-full">
                 <thead>
-                  <tr className="text-gray-400 font-serif">
-                    <th className="px-5">Image</th>
-                    <th className="px-2">First Name</th>
-                    <th className="px-2">Last Name</th>
-                    <th className="px-2">Email</th>
-                    <th className="px-2" >Age</th>
-                    <th className="px-2">Phone</th>
-                    <th className="px-2">Birth Date</th>
-                    <th className="px-5"></th>
+                  <tr className="bg-gray-100 font-serif h-12">
+                    <th className={style.th}>Image</th>
+                    <th className={style.th}>First Name</th>
+                    <th className={style.th}>Last Name</th>
+                    <th className={style.th}>Email</th>
+                    <th className={style.th} >Age</th>
+                    <th className={style.th}>Phone</th>
+                    <th className={style.th}>Birth Date</th>
+                    <th className={style.th}></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-center">
                   {currentData.map((el: any) => (
-                    <tr key={el.id} className="text-gray-400 font-serif">
-                      <td className="px-5"><img src={el.image} alt="img" className="w-16 h-16 rounded-xl" /></td>
-                      <td className="px-4">{el.firstName}</td>
-                      <td className="px-4">{el.lastName}</td>
-                      <td className="px-2">{el.email}</td>
-                      <td className="px-4">{el.age}</td>
-                      <td className="px-2">{el.phone}</td>
-                      <td className="px-4">{el.birthDate}</td>
-                      <td>
-                        <div className="flex gap-6 text-yellow-500 cursor-pointer p-5">
+                    <tr key={el.id} className="font-serif">
+                      <td className={style.td}><img src={el.image} alt="img" className="w-16 h-16 rounded-xl m-auto" /></td>
+                      <td className={style.td}>{el.firstName}</td>
+                      <td className={style.td}>{el.lastName}</td>
+                      <td className={style.td}>{el.email}</td>
+                      <td className={style.td}>{el.age}</td>
+                      <td className={style.td}>{el.phone}</td>
+                      <td className={style.td}>{el.birthDate}</td>
+                      <td className={style.td}>
+                        <div className="flex gap-6 text-green-700 cursor-pointer p-5">
                           <MdDelete size={24} onClick={() => open(el.id)} />
                           <Link to={`/dashboard/addUser/${el.id}`}><FaEdit size={24} /></Link>
                         </div>
@@ -111,35 +141,67 @@ const Users = () => {
                   ))}
                 </tbody>
               </table>
-            </div>
+              </div>
+ <div className="flex justify-end  gap-4 p-2">
 
-            <div className="flex justify-center m-2 mt-8">
-              <button
+
+
+<div className="flex text-sm md:text-md">
+  <p className="flex items-center gap-2">
+    Rows per page: 
+    <select
+      value={itemsPerPage}
+      onChange={(e) => {
+        setItemsPerPage(Number(e.target.value));
+        setCurrent(1); // عشان يرجع لأول صفحة بعد تغيير العدد
+      }}
+      className="border rounded p-1"
+    >
+      {[6, 10, 15, 20].map((num) => (
+        <option key={num} value={num}>
+          {num}
+        </option>
+      ))}
+    </select>
+  </p>
+</div>
+
+
+
+<div>
+ <button
+                >
+                  {startIndex+1}-{lastIndex} of {data.length}
+                </button>
+</div>
+               
+
+
+<div>
+  <button
                 onClick={() => setCurrent(current > 1 ? current - 1 : current)}
-                className="px-1 py-2 mx-1 text-white bg-yellow-500 rounded"
                 disabled={current === 1}
               >
-                Prev
+                <IoIosArrowBack size={24} />
               </button>
 
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrent(index + 1)}
-                  className={`px-1 py-2 mx-1 rounded ${current === index + 1 ? 'bg-yellow-500 text-white' : 'bg-gray-300'}`}
-                >
-                  {index + 1}
-                </button>
-              ))}
+          
 
               <button
                 onClick={() => setCurrent(current < totalPages ? current + 1 : current)}
-                className="px-1 py-2 mx-1 text-white bg-yellow-500 rounded"
                 disabled={current === totalPages}
               >
-                Next
+                <IoIosArrowForward  size={24}/>
               </button>
+</div>
+
+            
             </div>
+         
+
+
+            </div>
+
 
             <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
               <div className="fixed inset-0 z-10 w-screen overflow-y-auto">

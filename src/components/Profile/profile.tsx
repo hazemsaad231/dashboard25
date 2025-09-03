@@ -1,40 +1,132 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../Context/context";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import style from "./profile.module.css";
+import { toast, ToastContainer } from "react-toastify";
 
+const Profile = () => {
+  const { userData }: any = useContext(Context);
+  const Id = localStorage.getItem("id");
 
+  console.log(userData);
 
+  const { register, handleSubmit, setValue } = useForm({});
+  const [isEditing, setIsEditing] = useState(false); // الحالة الجديدة للتحكم
 
-const Profile = ()=>{
+  useEffect(() => {
+    if (Id) {
+      const fetchUser = async () => {
+        try {
+          const res = await axios.get(`https://dummyjson.com/users/${Id}`);
+          const user = res.data;
+          setValue("firstname", user.firstName);
+          setValue("lastname", user.lastName);
+          setValue("email", user.email);
+          setValue("gender", user.gender);
+          setValue("phone", user.phone);
 
-    const{ userData}:any = useContext(Context)
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      fetchUser();
+    }
+  }, [Id, setValue]);
 
+  const onSubmit = async (data: any) => {
+    try {
+      const res = await axios.put(`https://dummyjson.com/users/${Id}`, data);
+      console.log("Updated:", res.data);
+      toast.success("Profile updated successfully!", { autoClose: 2000 });
+      setIsEditing(false); // بعد الحفظ نرجعها قراءة فقط
+    } catch (err) {
+      console.log(err);
+      toast.error("Failed to update profile.", { autoClose: 2000 });
+    }
+  };
 
-    return(
+  return (
+    <div className="lg:ml-60 min-h-screen bg-gray-100 rounded-xl p-6">
+      <ToastContainer/>
+      <h1 className="text-xl font-bold mb-6">Personal Information</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+        <img
+          src={userData.image}
+          alt="Profile"
+          className="w-24 h-24 rounded-full"
+        />
 
-<div className="py-2" style={{fontFamily:"serif"}}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 className={style.profile}>First Name</h4>
+            <input
+              type="text"
+              className="bg-white w-full lg:w-80 py-2 px-4 rounded"
+              {...register("firstname", { required: true })}
+              disabled={!isEditing} // هنا التحكم
+            />
+          </div>
 
-<h1 className="font-bold text-md sm:text-md md:text-lg lg:text-lg xl:text-lg m-4 text-gray-200">profile</h1>
+          <div>
+            <h4 className={style.profile}>Last Name</h4>
+            <input
+              type="text"
+              className="bg-white w-full lg:w-80 py-2 px-4 rounded"
+              {...register("lastname", { required: true })}
+              disabled={!isEditing}
+            />
+          </div>
 
-<div className="flex flex-col justify-center items-center">
+          <div>
+            <h4 className={style.profile}>Email</h4>
+            <input
+              type="email"
+              className="bg-white w-full lg:w-80 py-2 px-4 rounded"
+              {...register("email", { required: true })}
+              disabled={!isEditing}
+            />
+          </div>
 
-    <img src={userData.image} alt=""  className="w-32 h-32 hidden xl:block lg:block md:block sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-40 lg:h-40 xl:w-40 xl:h-40 rounded-full mb-2 px-2"/>
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-16 mt-10 text-gray-200">
-        <div><h4 className="text-gray-500">FirstName</h4>
-        <div className="border border-gray-300 text-center py-2 rounded-lg text-sm sm:text-md md:text-lg lg:text-lg xl:text-lg" id="btn">{userData.firstName}</div></div>
-        <div><h4 className="text-gray-500">LastName</h4>
-        <div className="border border-gray-300 text-center py-2 rounded-lg text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl" id="btn">{userData.lastName}</div></div>
-        <div><h4 className="text-gray-500">Email</h4>
-        <div className="border border-gray-300 text-center  py-2 rounded-lg text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl" id="btn">{userData.email}</div></div>
-        <div><h4 className="text-gray-500">gender</h4>
-        <div className="border border-gray-300 text-center  py-2 rounded-lg text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl" id="btn">{userData.gender}</div></div>
+          <div>
+            <h4 className={style.profile}>Gender</h4>
+            <input
+              type="text"
+              className="bg-white w-full lg:w-80 py-2 px-4 rounded"
+              {...register("gender")}
+              disabled={!isEditing}
+            />
+          </div>
+
+          <div>
+            <h4 className={style.profile}>Phone</h4>
+            <input
+              type="text"
+              className="bg-white w-full lg:w-80 py-2 px-4 rounded"
+              {...register("phone")}
+              disabled={!isEditing}
+            />
+          </div>
+        </div>
+      </form>
+         {!isEditing ? (
+          <button
+            type="button"
+            onClick={() => setIsEditing(true)}
+            className="bg-green-700 text-white py-2 px-4 rounded mt-4 w-32"
+          >
+            Edit
+          </button>
+        ) : (
+          <button
+          onClick={handleSubmit(onSubmit)}
+            className="bg-green-900 text-white py-2 px-4 rounded mt-4 w-32"
+          >
+            Save
+          </button>
+        )}
     </div>
-    <div className="mt-16 text-gray-200"><h4 className="text-gray-500">phone Number</h4>
-    <div className="border border-gray-300 text-center px-20 py-2 rounded-lg text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl" id="btn">{userData.exp}</div></div>
-</div>
-
-</div>
-
-    )
-}
+  );
+};
 
 export default Profile;
