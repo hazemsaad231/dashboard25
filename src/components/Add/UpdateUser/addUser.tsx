@@ -62,7 +62,7 @@ const AddUser = () => {
     };
 
     return (
-        <div className="lg:ml-60 bg-gray-100 min-h-screen">
+        <div className="lg:mr-60 bg-gray-100 min-h-screen">
             <ToastContainer />
     
             <div className="flex justify-center items-center py-20">

@@ -43,7 +43,7 @@ const areaChartData = [
 const Home = class home extends PureComponent {
   render() {
     return (
-      <div className=" lg:ml-60 min-h-screen bg-gray-100 flex flex-col justify-center items-center p-6 py-16">
+      <div className=" lg:mr-60 min-h-screen bg-gray-100 flex flex-col justify-center items-center p-6 py-16">
         <h1 className="text-3xl font-bold mb-4 text-center">Dashboard Home</h1>
 
         <div className="flex gap-4 text-md sm:text-md md:text-md lg:text-xl xl:text-xl p-4">

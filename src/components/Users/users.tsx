@@ -75,7 +75,7 @@ const Users = () => {
         {loading ? (
           <Load />
         ) : (
-          <div className="lg:ml-60 p-4 bg-gray-100 min-h-screen pt-4">
+          <div className="lg:mr-60 p-4 bg-gray-100 min-h-screen pt-4">
           
             <div className="flex justify-between items-center py-8 md:py-4 p-4">
               <h1 className="font-bold text-2xl m-2">Users</h1>

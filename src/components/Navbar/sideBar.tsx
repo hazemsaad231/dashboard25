@@ -13,7 +13,7 @@ const Side = ()=>{
 
     return(
         <>
-        <div className="flex lg:ml-60 p-2 bg-gray-100 rounded-xl">
+        <div className="flex lg:mr-60 p-2 bg-gray-100">
         <div className="flex justify-end items-center gap-3">
               <div>
                 <TfiArrowCircleLeft size={25} className="mt-2" />
