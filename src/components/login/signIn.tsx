@@ -45,29 +45,34 @@ const onSubmait=async(data:any)=>{
 
 <>
 <ToastContainer limit={1} />
-<div className="signIn ">
-<div className="login  h-max bg-white text-start rounded-xl shadow-2xl p-16 w-[80%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[30%]">
+<div className="flex justify-center items-center h-screen bg-[#dfc96d]">
+<div className="h-max bg-white text-start rounded-xl shadow-xl p-16 w-[80%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[30%]">
+<div className="flex flex-col justify-center items-center">
 
-<h1 className="text-xl lg:text-2xl border-l-4 border-orange-300 text-start font-bold p-2 px-6 mb-12 ">User Mangement System</h1>
+    <img
+    src="/logo2.jpeg"
+    alt="logo"
+    className="w-40 h-40 mb-8"
+    />
 
-<h3 className="text-xl font-semibold">SIGN IN</h3>
-<p className="text-md text-gray-500 font-extralight">Enter your credentials to access your account</p>
-
+<h3 className="text-xl font-semibold">تسجيل الدخول</h3>
+<p className="text-md text-gray-500 font-extralight">من فضلك قم بتسجيل الدخول</p>
+</div>
 <form onSubmit={handleSubmit(onSubmait)}>
 <div className="flex flex-col mt-10">
-    <label htmlFor="username" className="text-start text-gray-600 font-normal">username</label>
+    <label htmlFor="username" className="text-start text-gray-600 font-normal">اسم المستخدم</label>
     <input type="text" placeholder="emilys"
-     className="border p-2 px-4 mt-1 rounded-md placeholder-gray-300 shadow-xl outline-none"
+     className="border p-2 px-4 mt-1 rounded-md placeholder-gray-300 shadow-md outline-none"
      {...register("username",{required:true})}/>
-     {errors.username && <p className="text-red-500 text-start">username is required</p>}
+     {errors.username && <p className="text-red-500 text-start">اسم المستخدم مطلوب</p>}
 
 
-    <label htmlFor="pass" className="text-start text-gray-600 font-normal mt-4">password</label>
-    <input type="text" placeholder="emilyspass"   className="border p-2 px-4 mt-1  rounded-md placeholder-gray-300 shadow-xl outline-none"
+    <label htmlFor="pass" className="text-start text-gray-600 font-normal mt-4">كلمة المرور</label>
+    <input type="text" placeholder="emilyspass"   className="border p-2 px-4 mt-1  rounded-md placeholder-gray-300 shadow-md outline-none"
     {...register("password",{required:true})} />
-    {errors.password && <p className="text-red-500 text-start">password is required</p>}
+    {errors.password && <p className="text-red-500 text-start">كلمة المرور مطلوب</p>}
 
-<button className="btn text-center text-white p-2 rounded-md mt-8">SIGN IN</button>
+<button className="bg-[#dfc96d] hover:bg-[#8e7615] w-full text-center text-white p-2 rounded-md mt-8">تسجيل الدخول</button>
 
     </div>    
 

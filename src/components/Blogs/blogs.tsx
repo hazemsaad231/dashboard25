@@ -10,9 +10,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
-import styles from "./usersstyle.module.css";
+import styles from "./blogs.module.css";
 
-const Users = () => {
+const Blogs = () => {
 
   const [data, setData] = useState([]);
   const [AllData, setAllData] = useState([]);
@@ -70,7 +70,7 @@ const Users = () => {
   return (
     <>
   <ToastContainer limit={1} />
-  
+  +++
       <div>  
         {loading ? (
           <Load />
@@ -78,9 +78,9 @@ const Users = () => {
           <div className="lg:mr-60 p-4 bg-gray-100 min-h-screen pt-4">
           
             <div className="flex justify-between items-center py-8 md:py-4 p-4">
-              <h1 className="font-bold text-2xl m-2">Users</h1>
+              <h1 className="font-bold text-2xl m-2">المدونات</h1>
               <Link to="/dashboard/addUser">
-                <button className='bg-black text-white p-2 rounded-lg font-bold'>+ New user</button>
+                <button className='bg-black text-white p-2 rounded-lg font-bold'>إضافة مدونة</button>
               </Link>
             </div>
 
@@ -90,7 +90,7 @@ const Users = () => {
   <input
   type="text"
   className="w-64 h-10 rounded-full pl-10 pr-4 bg-gray-100 focus:bg-white border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-  placeholder="Search..."
+  placeholder="ابحث هنا..."
  onChange={(e) => {
     const searchTerm = e.target.value.toLowerCase();
     if (searchTerm !== '') {
@@ -236,4 +236,4 @@ const Users = () => {
   );
 }
 
-export default Users;
+export default Blogs;

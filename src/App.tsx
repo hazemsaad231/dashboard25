@@ -1,13 +1,14 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/Home/home'
-import Users from './components/Users/users'
+import Services from './components/Services/services'
 import AddUser from './components/Add/UpdateUser/addUser'
 import Profile from './components/Profile/profile'
 import Master1 from './components/Routing/master1'
 import Master2 from './components/Routing/master2'
 import Sign from './components/login/signIn'
 import PrivateRoute from './components/Routing/protuct'
+import Blogs from './components/Blogs/blogs'
 
 
 function App() {
@@ -30,7 +31,8 @@ function App() {
       children:[
         {index: true, element: <Home/>},
         {path: "home", element: <Home/>},
-        {path: "users", element: <Users/>},
+        {path: "services", element: <Services/>},
+        {path: "blogs", element: <Blogs/>},
         {path: "addUser", element: <AddUser/>},
         {path: "addUser/:id", element: <AddUser/>},
         {path: "profile", element: <Profile/>},

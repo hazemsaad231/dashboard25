@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaHouse, FaUserPlus, FaUsersLine, FaPerson, FaOutdent } from "react-icons/fa6";
+import { FaHouse, FaUserPlus, FaUsersLine, FaOutdent } from "react-icons/fa6";
 import { useState } from "react";
 import Close from "../Close/close";
 import { useContext } from "react";
@@ -45,25 +45,29 @@ const Navbar = () => {
           </div>
 
           <ul className="flex flex-col font-semibold gap-4 mt-12 ">
-            <li className={`flex gap-2 py-2 rounded-full ${activete === "home" && "bg-white shadow-xl"}`} onClick={() => handleBg("home")}>
+            <li className={`flex gap-2 p-2 rounded-full ${activete === "home" && "bg-white shadow-xl"}`} onClick={() => handleBg("home")}>
               <FaHouse size={22} className="ml-2" />
-              <Link to="home" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> home</Link>
+              <Link to="home" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg">الرئيسية</Link>
             </li>
 
-            <li className={`flex gap-2 py-2 rounded-full ${activete === "users" && "bg-white shadow-xl"}`} onClick={() => handleBg("users")}>
+            <li className={`flex gap-2 p-2 rounded-full ${activete === "services" && "bg-white shadow-xl"}`} onClick={() => handleBg("services")}>
               <FaUsersLine size={22} className="ml-2" />
-              <Link to="users" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> users</Link>
+              <Link to="services" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> الخدمات</Link>
+            </li>
+              <li className={`flex gap-2 p-2 rounded-full ${activete === "blogs" && "bg-white shadow-xl"}`} onClick={() => handleBg("blogs")}>
+              <FaUsersLine size={22} className="ml-2" />
+              <Link to="blogs" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> المدونات</Link>
             </li>
 
-            <li className={`flex gap-2 py-2 rounded-full ${activete === "addUser" && "bg-white shadow-xl"}`} onClick={() => handleBg("addUser")}>
+            <li className={`flex gap-2 p-2 rounded-full ${activete === "addUser" && "bg-white shadow-xl"}`} onClick={() => handleBg("addUser")}>
               <FaUserPlus size={22} className="ml-2" />
-              <Link to="addUser" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> addUser</Link>
+              <Link to="addUser" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> اضافة</Link>
             </li>
 
-            <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-white shadow-xl"}`} onClick={() => handleBg("profile")}>
+            {/* <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-white shadow-xl"}`} onClick={() => handleBg("profile")}>
               <FaPerson size={22} className="ml-2" />
               <Link to="profile" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> profile</Link>
-            </li>
+            </li> */}
 
           </ul>
 
@@ -86,35 +90,35 @@ const Navbar = () => {
 
       <div className={` fixed z-10 w-60 bg-green-800 text-white h-[100vh] sm:block md:block lg:hidden xl:hidden
       transform transition-transform duration-500 ease-in-out ${isNavbarVisible  ? "translate-x-0" : "-translate-x-full"}`}>
-        <h1 className="border-l-4 border-orange-300 font-semibold px-2 m-5">UMS</h1>
+        {/* <h1 className="border-l-4 border-orange-300 font-semibold px-2 m-5">UMS</h1> */}
 
         <div className="flex flex-col items-center">
           <div className="text-center mt-12">
             <img src={userData.image} alt="img" className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-40 lg:h-40 xl:w-40 xl:h-40 rounded-full mb-2 px-2" />
-            <h1 className="font-bold text-lg">{userData.firstName} {userData.lastName}</h1>
+            {/* <h1 className="font-bold text-lg">{userData.firstName} {userData.lastName}</h1> */}
             <h3 className="text-yellow-500 font-semibold">Admin</h3>
           </div>
 
           <ul className="flex flex-col font-semibold gap-4 mt-12 ">
-            <li className={`flex gap-2 py-2 rounded-full ${activete === "home" && "bg-yellow-500"}`} onClick={() => handleBg("home")}>
+            <li className={`flex gap-2 p-2 rounded-full ${activete === "home" && "bg-yellow-500"}`} onClick={() => handleBg("home")}>
               <FaHouse size={22} className="ml-2" />
-              <Link to="home" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> home</Link>
+              <Link to="home" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> الرئيسية</Link>
             </li>
 
-            <li className={`flex gap-2 py-2 rounded-full ${activete === "users" && "bg-yellow-500"}`} onClick={() => handleBg("users")}>
+            <li className={`flex gap-2 p-2 rounded-full ${activete === "users" && "bg-yellow-500"}`} onClick={() => handleBg("users")}>
               <FaUsersLine size={22} className="ml-2" />
-              <Link to="users" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> users</Link>
+              <Link to="users" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> الخدمات</Link>
             </li>
 
-            <li className={`flex gap-2 py-2 rounded-full ${activete === "addUser" && "bg-yellow-500"}`} onClick={() => handleBg("addUser")}>
+            <li className={`flex gap-2 p-2 rounded-full ${activete === "blogs" && "bg-yellow-500"}`} onClick={() => handleBg("blogs")}>
               <FaUserPlus size={22} className="ml-2" />
-              <Link to="addUser" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> addUser</Link>
+              <Link to="blogs" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> المدونات</Link>
             </li>
 
-            <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-yellow-500"}`} onClick={() => handleBg("profile")}>
+            {/* <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-yellow-500"}`} onClick={() => handleBg("profile")}>
               <FaPerson size={22} className="ml-2" />
               <Link to="profile" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> profile</Link>
-            </li>
+            </li> */}
           </ul>
           <button
             onClick={toggleNavbar}
