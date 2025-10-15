@@ -11,6 +11,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import styles from "./blogs.module.css";
+import { api } from '../Api/api';
 
 const Blogs = () => {
 
@@ -41,7 +42,7 @@ const Blogs = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get('https://dummyjson.com/users');
+      const response = await axios.get(api);
       setData(response.data.users);
       setAllData(response.data.users);
       setLoading(false);
@@ -55,7 +56,7 @@ const Blogs = () => {
  
   const Delete = async () => {
     try {
-      await axios.delete(`https://dummyjson.com/users/${userId}`);
+      await axios.delete(`${api}/${userId}`);
       toast('Delete is successful!');
       getData(); // تحديث البيانات بعد الحذف
     } catch (errors) {
@@ -75,7 +76,7 @@ const Blogs = () => {
         {loading ? (
           <Load />
         ) : (
-          <div className="lg:mr-60 p-4 bg-gray-100 min-h-screen pt-4">
+          <div className="lg:mr-60 p-4 bg-gray-100 h-screen pt-4">
           
             <div className="flex justify-between items-center py-8 md:py-4 p-4">
               <h1 className="font-bold text-2xl m-2">المدونات</h1>
@@ -180,6 +181,13 @@ const Blogs = () => {
 
 
 <div>
+
+      <button
+                onClick={() => setCurrent(current < totalPages ? current + 1 : current)}
+                disabled={current === totalPages}
+              >
+                <IoIosArrowForward  size={24}/>
+              </button>
   <button
                 onClick={() => setCurrent(current > 1 ? current - 1 : current)}
                 disabled={current === 1}
@@ -189,12 +197,7 @@ const Blogs = () => {
 
           
 
-              <button
-                onClick={() => setCurrent(current < totalPages ? current + 1 : current)}
-                disabled={current === totalPages}
-              >
-                <IoIosArrowForward  size={24}/>
-              </button>
+          
 </div>
 
             

@@ -32,9 +32,9 @@ const onSubmait=async(data:any)=>{
         setTimeout(()=>{
             navigate('/dashboard')
         },2000)
-        toast('login successfully!')
+        toast('تم تسجيل الدخول بنجاح')
     } catch(error) {
-        toast.error('invalid username or password')
+        toast.error('خطأ في تسجيل الدخول')
         console.log(error)
     }
    

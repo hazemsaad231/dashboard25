@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import { api } from "../../Api/api";
 
 const AddUser = () => {
 
@@ -19,7 +20,7 @@ const AddUser = () => {
         if (id) {
             const Update = async () => {
                 try {
-                    const res = await axios.get(`https://dummyjson.com/users/${id}`);
+                    const res = await axios.get(`${api}/${id}`);
                     const user = res.data;
                     setValue("firstname", user.firstName);
                     setValue("lastname", user.lastName);
@@ -39,7 +40,7 @@ const AddUser = () => {
     const onSubmit = async (data:any) => {
         try {
             if (id) {
-                const response = await axios.put(`https://dummyjson.com/users/${id}`, data);
+                const response = await axios.put(`${api}/${id}`, data);
                 console.log(response,'updated');
                 setTimeout(() => {
                     navigate("/dashboard/users")
@@ -47,7 +48,7 @@ const AddUser = () => {
                
                 toast("Update is successful");
             } else {
-                const response = await axios.post("https://dummyjson.com/users/add", data);
+                const response = await axios.post(api, data);
                 console.log(response);
                 setTimeout(() => {
                     navigate("/dashboard/users")

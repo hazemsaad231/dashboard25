@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import { FaHouse, FaUserPlus, FaUsersLine, FaOutdent } from "react-icons/fa6";
+import { FaHouse, FaUserPlus,FaOutdent,FaPerson } from "react-icons/fa6";
 import { useState } from "react";
 import Close from "../Close/close";
 import { useContext } from "react";
 import { Context } from "../Context/context";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrServices } from "react-icons/gr";
+import { TbLogs } from "react-icons/tb";
 
 
 
@@ -51,23 +53,23 @@ const Navbar = () => {
             </li>
 
             <li className={`flex gap-2 p-2 rounded-full ${activete === "services" && "bg-white shadow-xl"}`} onClick={() => handleBg("services")}>
-              <FaUsersLine size={22} className="ml-2" />
+              <GrServices size={22} className="ml-2" />
               <Link to="services" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> الخدمات</Link>
             </li>
               <li className={`flex gap-2 p-2 rounded-full ${activete === "blogs" && "bg-white shadow-xl"}`} onClick={() => handleBg("blogs")}>
-              <FaUsersLine size={22} className="ml-2" />
+              <TbLogs size={22} className="ml-2" />
               <Link to="blogs" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> المدونات</Link>
             </li>
 
-            <li className={`flex gap-2 p-2 rounded-full ${activete === "addUser" && "bg-white shadow-xl"}`} onClick={() => handleBg("addUser")}>
+            {/* <li className={`flex gap-2 p-2 rounded-full ${activete === "addUser" && "bg-white shadow-xl"}`} onClick={() => handleBg("addUser")}>
               <FaUserPlus size={22} className="ml-2" />
               <Link to="addUser" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> اضافة</Link>
-            </li>
-
-            {/* <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-white shadow-xl"}`} onClick={() => handleBg("profile")}>
-              <FaPerson size={22} className="ml-2" />
-              <Link to="profile" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> profile</Link>
             </li> */}
+
+            <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-white shadow-xl"}`} onClick={() => handleBg("profile")}>
+              <FaPerson size={22} className="ml-2" />
+              <Link to="profile" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> الملف الشخصي</Link>
+            </li>
 
           </ul>
 
@@ -106,19 +108,19 @@ const Navbar = () => {
             </li>
 
             <li className={`flex gap-2 p-2 rounded-full ${activete === "users" && "bg-yellow-500"}`} onClick={() => handleBg("users")}>
-              <FaUsersLine size={22} className="ml-2" />
+              <GrServices size={22} className="ml-2" />
               <Link to="users" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> الخدمات</Link>
             </li>
 
             <li className={`flex gap-2 p-2 rounded-full ${activete === "blogs" && "bg-yellow-500"}`} onClick={() => handleBg("blogs")}>
-              <FaUserPlus size={22} className="ml-2" />
+              <TbLogs size={22} className="ml-2" />
               <Link to="blogs" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> المدونات</Link>
             </li>
 
-            {/* <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-yellow-500"}`} onClick={() => handleBg("profile")}>
+            <li className={`flex gap py-2 rounded-full ${activete === "profile" && "bg-yellow-500"}`} onClick={() => handleBg("profile")}>
               <FaPerson size={22} className="ml-2" />
-              <Link to="profile" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> profile</Link>
-            </li> */}
+              <Link to="profile" className="text-md sm:text-md md:text-lg lg:text-lg xl:text-lg"> الملف الشخصي</Link>
+            </li>
           </ul>
           <button
             onClick={toggleNavbar}

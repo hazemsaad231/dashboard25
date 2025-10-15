@@ -11,6 +11,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import styles from "./services.module.css";
+import { api } from '../Api/api';
 
 const Users = () => {
 
@@ -41,7 +42,7 @@ const Users = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get('https://dummyjson.com/users');
+      const response = await axios.get(api);
       setData(response.data.users);
       setAllData(response.data.users);
       setLoading(false);
@@ -55,7 +56,7 @@ const Users = () => {
  
   const Delete = async () => {
     try {
-      await axios.delete(`https://dummyjson.com/users/${userId}`);
+      await axios.delete(`${api}/${userId}`);
       toast('Delete is successful!');
       getData(); // تحديث البيانات بعد الحذف
     } catch (errors) {
@@ -75,7 +76,7 @@ const Users = () => {
         {loading ? (
           <Load />
         ) : (
-          <div className="lg:mr-60 p-4 bg-gray-100 min-h-screen pt-4">
+          <div className="lg:mr-60 p-4 bg-gray-100 h-screen pt-4">
           
             <div className="flex justify-between items-center py-8 md:py-4 p-4">
               <h1 className="font-bold text-2xl m-2">الخدمات</h1>
@@ -180,20 +181,18 @@ const Users = () => {
 
 
 <div>
-  <button
-                onClick={() => setCurrent(current > 1 ? current - 1 : current)}
-                disabled={current === 1}
-              >
-                <IoIosArrowBack size={24} />
-              </button>
-
-          
-
+  
               <button
                 onClick={() => setCurrent(current < totalPages ? current + 1 : current)}
                 disabled={current === totalPages}
               >
                 <IoIosArrowForward  size={24}/>
+              </button>
+              <button
+                onClick={() => setCurrent(current > 1 ? current - 1 : current)}
+                disabled={current === 1}
+              >
+                <IoIosArrowBack size={24} />
               </button>
 </div>
 

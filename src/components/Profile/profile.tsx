@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import style from "./profile.module.css";
 import { toast, ToastContainer } from "react-toastify";
+import { api } from "../Api/api";
 
 const Profile = () => {
   const { userData }: any = useContext(Context);
@@ -18,7 +19,7 @@ const Profile = () => {
     if (Id) {
       const fetchUser = async () => {
         try {
-          const res = await axios.get(`https://dummyjson.com/users/${Id}`);
+          const res = await axios.get(`${api}/${Id}`);
           const user = res.data;
           setValue("firstname", user.firstName);
           setValue("lastname", user.lastName);
@@ -36,7 +37,7 @@ const Profile = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      const res = await axios.put(`https://dummyjson.com/users/${Id}`, data);
+      const res = await axios.put(`${api}/${Id}`, data);
       console.log("Updated:", res.data);
       toast.success("Profile updated successfully!", { autoClose: 2000 });
       setIsEditing(false); // بعد الحفظ نرجعها قراءة فقط
